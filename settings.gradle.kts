@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "UnfocusableViewPager2"
 include(":app")
+include(":viewpager2")
