@@ -428,8 +428,10 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     private void dispatchSelected(int target) {
-        if (mCallback != null) {
-            mCallback.onPageSelected(target);
+        if (mViewPager.getPageSelectionEnabled()) {
+            if (mCallback != null) {
+                mCallback.onPageSelected(target);
+            }
         }
     }
 

@@ -17,14 +17,13 @@
 package com.pandacorp.viewpager2.adapter;
 
 import android.os.Parcelable;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import com.pandacorp.viewpager2.widget.ViewPager2;
 
 /**
  * {@link ViewPager2} adapters should implement this interface to be called during
- * {@link View#onSaveInstanceState()} and {@link View#onRestoreInstanceState(Parcelable)}
+ * onSaveInstanceState() and onRestoreInstanceState(Parcelable)
  */
 public interface StatefulAdapter {
     /** Saves adapter state */

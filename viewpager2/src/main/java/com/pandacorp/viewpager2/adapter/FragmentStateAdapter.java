@@ -59,7 +59,7 @@ import java.util.Set;
  * re-usable container for a {@link Fragment} in later stages.
  * <li>{@link RecyclerView.Adapter#onBindViewHolder} we ask for a {@link Fragment} for the
  * position. If we already have the fragment, or have previously saved its state, we use those.
- * <li>{@link RecyclerView.Adapter#onAttachedToWindow} we attach the {@link Fragment} to a
+ * RecyclerView.Adapter$onAttachedToWindow we attach the {@link Fragment} to a
  * container.
  * <li>{@link RecyclerView.Adapter#onViewRecycled} we remove, save state, destroy the
  * {@link Fragment}.

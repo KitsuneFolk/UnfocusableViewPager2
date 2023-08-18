@@ -1,11 +1,58 @@
 package com.pandacorp.unfocusableviewpager2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
+import com.pandacorp.unfocusableviewpager2.databinding.ActivityMainBinding
+import com.pandacorp.unfocusableviewpager2.pager.NavBackStackAdapter
+import com.pandacorp.unfocusableviewpager2.pager.SwipeTransformer
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private const val selectionBundleKey = "selectionBundleKey"
+    }
+
+    private var _binding: ActivityMainBinding? = null
+    private val binding get() = _binding!!
+
+    private var pageSelectionEnabled = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        _binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        savedInstanceState?.let {
+            pageSelectionEnabled = it.getBoolean(selectionBundleKey, true)
+            setPageSelectionEnabled(pageSelectionEnabled)
+        }
+
+        initViews()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    private fun initViews() {
+        binding.viewPager.setPageTransformer(SwipeTransformer())
+        binding.viewPager.adapter = NavBackStackAdapter(this)
+        binding.viewPager.pageSelectionEnabled = pageSelectionEnabled
+        binding.selectionButton.setOnClickListener {
+            pageSelectionEnabled = !pageSelectionEnabled
+            setPageSelectionEnabled(pageSelectionEnabled)
+        }
+    }
+
+    private fun setPageSelectionEnabled(pageSelectionEnabled: Boolean) {
+        binding.viewPager.pageSelectionEnabled = pageSelectionEnabled
+        if (pageSelectionEnabled) binding.selectionButton.text = "Selection Enabled"
+        else binding.selectionButton.text = "Selection Disabled"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+        outState.putBoolean(selectionBundleKey, pageSelectionEnabled)
+        super.onSaveInstanceState(outState, outPersistentState)
     }
 }

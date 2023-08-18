@@ -153,6 +153,8 @@ public final class ViewPager2 extends ViewGroup {
     private @OffscreenPageLimit int mOffscreenPageLimit = OFFSCREEN_PAGE_LIMIT_DEFAULT;
     AccessibilityProvider mAccessibilityProvider; // to avoid creation of a synthetic accessor
 
+    private boolean isPageSelectionEnabled = true;
+
     public ViewPager2(@NonNull Context context) {
         super(context);
         initialize(context, null);
@@ -569,7 +571,7 @@ public final class ViewPager2 extends ViewGroup {
         mAccessibilityProvider.onSetOrientation();
     }
 
-    public @Orientation int getOrientation() {
+    public int getOrientation() {
         return mLayoutManager.getOrientation();
     }
 
@@ -1213,6 +1215,15 @@ public final class ViewPager2 extends ViewGroup {
      */
     public void removeItemDecoration(@NonNull ItemDecoration decor) {
         mRecyclerView.removeItemDecoration(decor);
+    }
+
+
+    public void setPageSelectionEnabled(boolean isPageSelectionEnabled) {
+        this.isPageSelectionEnabled = isPageSelectionEnabled;
+    }
+
+    public boolean getPageSelectionEnabled() {
+        return isPageSelectionEnabled;
     }
 
     // TODO(b/141956012): Suppressed during upgrade to AGP 3.6.
