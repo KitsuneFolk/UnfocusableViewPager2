@@ -33,4 +33,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation("androidx.collection:collection-ktx:1.2.0")
 }
