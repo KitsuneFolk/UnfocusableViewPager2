@@ -21,7 +21,6 @@ import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
 import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
 import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING;
 import static com.pandacorp.viewpager2.widget.ViewPager2.ScrollState;
-
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.view.View;
@@ -32,6 +31,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.pandacorp.viewpager2.widget.ViewPager2.OnPageChangeCallback;
 
 import java.lang.annotation.Retention;
@@ -43,7 +43,6 @@ import java.util.Locale;
  * relative to the pages and exposes this position via ({@link #getRelativeScrollPosition()}.
  */
 final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
-    /** @hide */
     @Retention(SOURCE)
     @IntDef({STATE_IDLE, STATE_IN_PROGRESS_MANUAL_DRAG, STATE_IN_PROGRESS_SMOOTH_SCROLL,
             STATE_IN_PROGRESS_IMMEDIATE_SCROLL, STATE_IN_PROGRESS_FAKE_DRAG})
@@ -66,7 +65,7 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     // state related fields
     private @AdapterState int mAdapterState;
     private @ViewPager2.ScrollState int mScrollState;
-    private ScrollEventValues mScrollValues;
+    private final ScrollEventValues mScrollValues;
     private int mDragStartPosition;
     private int mTarget;
     private boolean mDispatchSelected;
@@ -369,7 +368,7 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
 
     /**
      * @return {@code true} if the ViewPager2 is being dragged. Returns {@code false} from the
-     *         moment the ViewPager2 starts settling or goes idle.
+     * moment the ViewPager2 starts settling or goes idle.
      */
     boolean isDragging() {
         return mScrollState == SCROLL_STATE_DRAGGING;
@@ -377,7 +376,7 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
 
     /**
      * @return {@code true} if a fake drag is ongoing. Returns {@code false} from the moment the
-     *         {@link ViewPager2#endFakeDrag()} is called.
+     * {@link ViewPager2#endFakeDrag()} is called.
      */
     boolean isFakeDragging() {
         return mFakeDragging;
@@ -385,8 +384,9 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
 
     /**
      * Checks if the adapter state (not the scroll state) is in the manual or fake dragging state.
+     *
      * @return {@code true} if {@link #mAdapterState} is either {@link
-     *         #STATE_IN_PROGRESS_MANUAL_DRAG} or {@link #STATE_IN_PROGRESS_FAKE_DRAG}
+     * #STATE_IN_PROGRESS_MANUAL_DRAG} or {@link #STATE_IN_PROGRESS_FAKE_DRAG}
      */
     private boolean isInAnyDraggingState() {
         return mAdapterState == STATE_IN_PROGRESS_MANUAL_DRAG
@@ -428,10 +428,8 @@ final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     }
 
     private void dispatchSelected(int target) {
-        if (mViewPager.getPageSelectionEnabled()) {
-            if (mCallback != null) {
-                mCallback.onPageSelected(target);
-            }
+        if (mViewPager.getPageSelectionEnabled() && mCallback != null) {
+            mCallback.onPageSelected(target);
         }
     }
 

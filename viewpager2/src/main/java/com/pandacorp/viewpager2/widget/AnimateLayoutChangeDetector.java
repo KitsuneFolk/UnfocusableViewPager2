@@ -28,12 +28,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * Class used to detect if there are gaps between pages and if any of the pages contain a running
  * change-transition in case we detected an illegal state in the {@link ScrollEventAdapter}.
- *
  * This is an approximation of the detection and could potentially lead to misleading advice. If we
  * hit problems with it, remove the detection and replace with a suggestive error message instead,
  * like "Negative page offset encountered. Did you setAnimateParentHierarchy(false) to all your
@@ -47,7 +45,7 @@ final class AnimateLayoutChangeDetector {
         ZERO_MARGIN_LAYOUT_PARAMS.setMargins(0, 0, 0, 0);
     }
 
-    private LinearLayoutManager mLayoutManager;
+    private final LinearLayoutManager mLayoutManager;
 
     AnimateLayoutChangeDetector(@NonNull LinearLayoutManager llm) {
         mLayoutManager = llm;
@@ -91,12 +89,7 @@ final class AnimateLayoutChangeDetector {
         }
 
         // Sort them
-        Arrays.sort(bounds, new Comparator<int[]>() {
-            @Override
-            public int compare(int[] lhs, int[] rhs) {
-                return lhs[0] - rhs[0];
-            }
-        });
+        Arrays.sort(bounds, (lhs, rhs) -> lhs[0] - rhs[0]);
 
         // Check for inconsistencies
         for (int i = 1; i < childCount; i++) {
@@ -107,10 +100,7 @@ final class AnimateLayoutChangeDetector {
 
         // Check that the pages fill the whole screen
         int pageSize = bounds[0][1] - bounds[0][0];
-        if (bounds[0][0] > 0 || bounds[childCount - 1][1] < pageSize) {
-            return false;
-        }
-        return true;
+        return bounds[0][0] <= 0 && bounds[childCount - 1][1] >= pageSize;
     }
 
     private boolean hasRunningChangingLayoutTransition() {

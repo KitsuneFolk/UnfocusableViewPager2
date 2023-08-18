@@ -68,7 +68,6 @@ import java.lang.annotation.Retention;
  * @see androidx.viewpager.widget.ViewPager
  */
 public final class ViewPager2 extends ViewGroup {
-    /** @hide */
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
     @IntDef({ORIENTATION_HORIZONTAL, ORIENTATION_VERTICAL})
@@ -78,14 +77,12 @@ public final class ViewPager2 extends ViewGroup {
     public static final int ORIENTATION_HORIZONTAL = RecyclerView.HORIZONTAL;
     public static final int ORIENTATION_VERTICAL = RecyclerView.VERTICAL;
 
-    /** @hide */
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
     @IntDef({SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING})
     public @interface ScrollState {
     }
 
-    /** @hide */
     @SuppressWarnings("WeakerAccess")
     @RestrictTo(LIBRARY_GROUP_PREFIX)
     @Retention(SOURCE)
@@ -125,11 +122,11 @@ public final class ViewPager2 extends ViewGroup {
     private final Rect mTmpContainerRect = new Rect();
     private final Rect mTmpChildRect = new Rect();
 
-    private CompositeOnPageChangeCallback mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
+    private final CompositeOnPageChangeCallback mExternalPageChangeCallbacks = new CompositeOnPageChangeCallback(3);
 
     int mCurrentItem;
     boolean mCurrentItemDirty = false;
-    private RecyclerView.AdapterDataObserver mCurrentItemDataSetChangeObserver =
+    private final RecyclerView.AdapterDataObserver mCurrentItemDataSetChangeObserver =
             new DataSetChangeObserver() {
                 @Override
                 public void onChanged() {
@@ -258,7 +255,6 @@ public final class ViewPager2 extends ViewGroup {
 
     /**
      * A lot of places in code rely on an assumption that the page fills the whole ViewPager2.
-     *
      * TODO(b/70666617) Allow page width different than width/height 100%/100%
      */
     private RecyclerView.OnChildAttachStateChangeListener enforceChildFillListener() {
@@ -547,7 +543,7 @@ public final class ViewPager2 extends ViewGroup {
         int snapPosition = mLayoutManager.getPosition(snapView);
 
         if (snapPosition != mCurrentItem && getScrollState() == SCROLL_STATE_IDLE) {
-            /** TODO: revisit if push to {@link ScrollEventAdapter} / separate component */
+            /* TODO: revisit if push to {@link ScrollEventAdapter} / separate component */
             mPageChangeEventDispatcher.onPageSelected(snapPosition);
         }
 
@@ -584,7 +580,6 @@ public final class ViewPager2 extends ViewGroup {
      * layout with its current adapter there will be a smooth animated transition between
      * the current item and the specified item. Silently ignored if the adapter is not set or
      * empty. Clamps item to the bounds of the adapter.
-     *
      * TODO(b/123069219): verify first layout behavior
      *
      * @param item Item index to select
@@ -1228,7 +1223,7 @@ public final class ViewPager2 extends ViewGroup {
 
     // TODO(b/141956012): Suppressed during upgrade to AGP 3.6.
     @SuppressWarnings("ClassCanBeStatic")
-    private abstract class AccessibilityProvider {
+    private abstract static class AccessibilityProvider {
         void onInitialize(@NonNull CompositeOnPageChangeCallback pageChangeEventDispatcher,
                 @NonNull RecyclerView recyclerView) {
         }
@@ -1338,25 +1333,17 @@ public final class ViewPager2 extends ViewGroup {
 
     class PageAwareAccessibilityProvider extends AccessibilityProvider {
         private final AccessibilityViewCommand mActionPageForward =
-                new AccessibilityViewCommand() {
-                    @Override
-                    public boolean perform(@NonNull View view,
-                            @Nullable CommandArguments arguments) {
-                        ViewPager2 viewPager = (ViewPager2) view;
-                        setCurrentItemFromAccessibilityCommand(viewPager.getCurrentItem() + 1);
-                        return true;
-                    }
+                (view, arguments) -> {
+                    ViewPager2 viewPager = (ViewPager2) view;
+                    setCurrentItemFromAccessibilityCommand(viewPager.getCurrentItem() + 1);
+                    return true;
                 };
 
         private final AccessibilityViewCommand mActionPageBackward =
-                new AccessibilityViewCommand() {
-                    @Override
-                    public boolean perform(@NonNull View view,
-                            @Nullable CommandArguments arguments) {
-                        ViewPager2 viewPager = (ViewPager2) view;
-                        setCurrentItemFromAccessibilityCommand(viewPager.getCurrentItem() - 1);
-                        return true;
-                    }
+                (view, arguments) -> {
+                    ViewPager2 viewPager = (ViewPager2) view;
+                    setCurrentItemFromAccessibilityCommand(viewPager.getCurrentItem() - 1);
+                    return true;
                 };
 
         private RecyclerView.AdapterDataObserver mAdapterDataObserver;
@@ -1572,10 +1559,10 @@ public final class ViewPager2 extends ViewGroup {
                 return;
             }
             if (mCurrentItem > 0) {
-                info.addAction(AccessibilityNodeInfoCompat.ACTION_SCROLL_BACKWARD);
+                info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_BACKWARD);
             }
             if (mCurrentItem < itemCount - 1) {
-                info.addAction(AccessibilityNodeInfoCompat.ACTION_SCROLL_FORWARD);
+                info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD);
             }
             info.setScrollable(true);
         }
