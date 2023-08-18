@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.pandacorp.unfocusableviewpager2"
-        minSdk = 21
+        minSdk = 16
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
