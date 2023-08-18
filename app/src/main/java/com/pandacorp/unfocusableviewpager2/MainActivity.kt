@@ -1,7 +1,6 @@
 package com.pandacorp.unfocusableviewpager2
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import com.pandacorp.unfocusableviewpager2.databinding.ActivityMainBinding
 import com.pandacorp.unfocusableviewpager2.pager.NavBackStackAdapter
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         savedInstanceState?.let {
-            pageSelectionEnabled = it.getBoolean(selectionBundleKey, true)
+            pageSelectionEnabled = it.getBoolean(selectionBundleKey)
             setPageSelectionEnabled(pageSelectionEnabled)
         }
 
@@ -51,8 +50,8 @@ class MainActivity : AppCompatActivity() {
         else binding.selectionButton.text = "Selection Disabled"
     }
 
-    override fun onSaveInstanceState(outState: Bundle, outPersistentState: PersistableBundle) {
+    override fun onSaveInstanceState(outState: Bundle) {
         outState.putBoolean(selectionBundleKey, pageSelectionEnabled)
-        super.onSaveInstanceState(outState, outPersistentState)
+        super.onSaveInstanceState(outState)
     }
 }
