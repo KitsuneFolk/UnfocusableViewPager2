@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.adapter;
+package com.unfocusableviewpager2.viewpager2.adapter;
 
 import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
-import com.pandacorp.viewpager2.widget.ViewPager2;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2;
 
 /**
  * {@link ViewPager2} adapters should implement this interface to be called during

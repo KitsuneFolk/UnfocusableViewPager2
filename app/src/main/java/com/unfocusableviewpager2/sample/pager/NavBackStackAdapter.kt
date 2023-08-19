@@ -1,10 +1,10 @@
-package com.pandacorp.unfocusableviewpager2.pager
+package com.unfocusableviewpager2.sample.pager
 
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import com.pandacorp.unfocusableviewpager2.TabFragment
-import com.pandacorp.viewpager2.adapter.FragmentStateAdapter
+import com.unfocusableviewpager2.sample.TabFragment
+import com.unfocusableviewpager2.viewpager2.adapter.FragmentStateAdapter
 
 class NavBackStackAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
 

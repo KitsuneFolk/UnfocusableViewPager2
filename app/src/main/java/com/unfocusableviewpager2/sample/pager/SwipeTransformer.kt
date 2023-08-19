@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package com.pandacorp.unfocusableviewpager2.pager
+package com.unfocusableviewpager2.sample.pager
 
 import android.view.View
-import com.pandacorp.viewpager2.widget.ViewPager2
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2
 
 class SwipeTransformer : ViewPager2.PageTransformer {
     private val parallaxFactor: Float = 1.15f

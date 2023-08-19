@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
 import android.view.View;
 import android.view.ViewParent;

@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
-import static com.pandacorp.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL;
-import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
-import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
-import static com.pandacorp.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING;
-import static com.pandacorp.viewpager2.widget.ViewPager2.ScrollState;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.ScrollState;
 import static java.lang.annotation.RetentionPolicy.SOURCE;
 
 import android.view.View;
@@ -32,7 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pandacorp.viewpager2.widget.ViewPager2.OnPageChangeCallback;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2.OnPageChangeCallback;
 
 import java.lang.annotation.Retention;
 import java.util.Locale;

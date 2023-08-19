@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import com.pandacorp.viewpager2.widget.ViewPager2.PageTransformer;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2.PageTransformer;
 
 import java.util.ArrayList;
 import java.util.List;

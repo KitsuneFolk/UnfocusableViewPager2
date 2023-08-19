@@ -1,4 +1,4 @@
-package com.pandacorp.unfocusableviewpager2
+package com.unfocusableviewpager2.sample
 
 import org.junit.Test
 

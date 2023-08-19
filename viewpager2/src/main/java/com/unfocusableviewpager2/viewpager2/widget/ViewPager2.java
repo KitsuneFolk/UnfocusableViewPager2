@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
 import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP_PREFIX;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
@@ -55,8 +55,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.Adapter;
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration;
 
-import com.pandacorp.viewpager2.R;
-import com.pandacorp.viewpager2.adapter.StatefulAdapter;
+import com.unfocusableviewpager2.viewpager2.R;
+import com.unfocusableviewpager2.viewpager2.adapter.StatefulAdapter;
 
 import java.lang.annotation.Retention;
 

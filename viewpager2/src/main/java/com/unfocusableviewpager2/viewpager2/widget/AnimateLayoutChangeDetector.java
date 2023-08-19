@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
-import static com.pandacorp.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL;
+import static com.unfocusableviewpager2.viewpager2.widget.ViewPager2.ORIENTATION_HORIZONTAL;
 
 import android.animation.LayoutTransition;
 import android.view.View;

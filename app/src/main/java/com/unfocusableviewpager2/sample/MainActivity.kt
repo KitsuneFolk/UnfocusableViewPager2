@@ -1,10 +1,10 @@
-package com.pandacorp.unfocusableviewpager2
+package com.unfocusableviewpager2.sample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.pandacorp.unfocusableviewpager2.databinding.ActivityMainBinding
-import com.pandacorp.unfocusableviewpager2.pager.NavBackStackAdapter
-import com.pandacorp.unfocusableviewpager2.pager.SwipeTransformer
+import com.unfocusableviewpager2.sample.databinding.ActivityMainBinding
+import com.unfocusableviewpager2.sample.pager.NavBackStackAdapter
+import com.unfocusableviewpager2.sample.pager.SwipeTransformer
 
 class MainActivity : AppCompatActivity() {
     companion object {

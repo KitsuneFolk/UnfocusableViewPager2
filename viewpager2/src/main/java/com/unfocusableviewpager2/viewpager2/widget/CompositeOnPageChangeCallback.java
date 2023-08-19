@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.widget;
+package com.unfocusableviewpager2.viewpager2.widget;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Px;
 
-import com.pandacorp.viewpager2.widget.ViewPager2.OnPageChangeCallback;
-import com.pandacorp.viewpager2.widget.ViewPager2.ScrollState;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2.OnPageChangeCallback;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2.ScrollState;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;

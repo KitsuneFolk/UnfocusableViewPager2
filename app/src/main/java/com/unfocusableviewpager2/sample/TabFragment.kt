@@ -1,4 +1,4 @@
-package com.pandacorp.unfocusableviewpager2
+package com.unfocusableviewpager2.sample
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.pandacorp.unfocusableviewpager2.databinding.TabFragmentBinding
+import com.unfocusableviewpager2.sample.databinding.TabFragmentBinding
 
 class TabFragment : Fragment() {
     private var _binding: TabFragmentBinding? = null

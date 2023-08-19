@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.pandacorp.unfocusableviewpager2"
+    namespace = "com.unfocusableviewpager2.sample"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.pandacorp.unfocusableviewpager2"
+        applicationId = "com.unfocusableviewpager2.sample"
         minSdk = 16
         targetSdk = 33
         versionCode = 1

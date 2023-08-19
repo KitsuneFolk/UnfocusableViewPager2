@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.pandacorp.viewpager2.adapter;
+package com.unfocusableviewpager2.viewpager2.adapter;
 
 import static androidx.lifecycle.Lifecycle.State.RESUMED;
 import static androidx.lifecycle.Lifecycle.State.STARTED;
@@ -45,7 +45,7 @@ import androidx.lifecycle.LifecycleEventObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pandacorp.viewpager2.widget.ViewPager2;
+import com.unfocusableviewpager2.viewpager2.widget.ViewPager2;
 
 import java.util.Set;
 

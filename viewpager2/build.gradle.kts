@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.pandacorp.viewpager2"
+    namespace = "com.unfocusableviewpager2.viewpager2"
     compileSdk = 33
 
     defaultConfig {
