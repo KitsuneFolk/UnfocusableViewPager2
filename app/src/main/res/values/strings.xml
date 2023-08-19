@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">UnfocusableViewPager2</string>
+
+    <string name="editTextHint">Write here…</string>
+    <string name="selectionEnabled">Selection Enabled</string>
+    <string name="selectionDisabled">Selection Disabled</string>
 </resources>

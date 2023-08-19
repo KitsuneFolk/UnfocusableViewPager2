@@ -15,10 +15,11 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/selectionButton"
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
         android:layout_height="0dp"
-        android:text="Selection Enabled"
-        android:textSize="24sp"
-        android:layout_weight="1" />
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:maxWidth="320dp"
+        android:text="@string/selectionEnabled"
+        android:textSize="24sp" />
 
 </LinearLayout>

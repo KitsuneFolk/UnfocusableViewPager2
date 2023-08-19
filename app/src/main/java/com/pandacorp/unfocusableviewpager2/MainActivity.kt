@@ -46,8 +46,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setPageSelectionEnabled(pageSelectionEnabled: Boolean) {
         binding.viewPager.pageSelectionEnabled = pageSelectionEnabled
-        if (pageSelectionEnabled) binding.selectionButton.text = "Selection Enabled"
-        else binding.selectionButton.text = "Selection Disabled"
+        binding.selectionButton.text = getString(
+            if (pageSelectionEnabled) R.string.selectionEnabled
+            else R.string.selectionDisabled
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

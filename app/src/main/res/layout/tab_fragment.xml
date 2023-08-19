@@ -10,17 +10,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:background="@color/black"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="50dp">
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
-            android:hint="Write here..."
+            android:hint="@string/editTextHint"
+            android:textColorHint="@android:color/black"
             android:importantForAutofill="no"
             android:maxLines="1"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:inputType="text" />
 
     </com.google.android.material.card.MaterialCardView>
 </FrameLayout>
