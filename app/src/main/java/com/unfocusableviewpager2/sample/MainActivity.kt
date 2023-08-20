@@ -47,8 +47,11 @@ class MainActivity : AppCompatActivity() {
     private fun setPageSelectionEnabled(pageSelectionEnabled: Boolean) {
         binding.viewPager.pageSelectionEnabled = pageSelectionEnabled
         binding.selectionButton.text = getString(
-            if (pageSelectionEnabled) R.string.selectionEnabled
-            else R.string.selectionDisabled
+            if (pageSelectionEnabled) {
+                R.string.selectionEnabled
+            } else {
+                R.string.selectionDisabled
+            },
         )
     }
 

@@ -19,7 +19,6 @@ class TabFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-
         _binding = TabFragmentBinding.inflate(inflater)
 
         initViews()
